@@ -7,6 +7,7 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.rule.GrantPermissionRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.airbnb.happo.HappoRunner;
 import com.airbnb.lottie.samples.MainActivity;
@@ -41,6 +42,7 @@ public class LottieTest {
     String branch = TextUtils.isEmpty(com.airbnb.lottie.samples.BuildConfig.TRAVIS_GIT_BRANCH) ?
         com.airbnb.lottie.samples.BuildConfig.GIT_BRANCH :
         com.airbnb.lottie.samples.BuildConfig.TRAVIS_GIT_BRANCH;
+    Log.d("Happo", "Happo S3 " + com.airbnb.lottie.samples.BuildConfig.S3AccessKey);
     HappoRunner.runTests(
         mainActivityRule.getActivity(),
         new LottieSnapshotProvider(mainActivityRule.getActivity()),

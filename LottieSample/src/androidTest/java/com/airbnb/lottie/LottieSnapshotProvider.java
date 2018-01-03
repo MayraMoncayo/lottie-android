@@ -96,6 +96,7 @@ public class LottieSnapshotProvider extends SnapshotProvider {
   }
 
   private void runAnimation(final String name) {
+    Log.d("Happo", "runAnimation " + name);
     LottieComposition composition = LottieComposition.Factory.fromFileSync(context, name);
     if (composition.getBounds().width() > 4 * Resources.getSystem().getDisplayMetrics().widthPixels ||
         composition.getBounds().height() > 4 * Resources.getSystem().getDisplayMetrics().heightPixels) {
@@ -114,6 +115,7 @@ public class LottieSnapshotProvider extends SnapshotProvider {
       }
     });
     view.setComposition(composition);
+    Log.d("Happo", "Snapshotting " + name);
     for (float progress : PROGRESS) {
       view.setProgress(progress);
       recordSnapshot(view, 1080, "android", name, Integer.toString((int) (progress * 100)));
